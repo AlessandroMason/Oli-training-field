@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:oli_training_field/introduction_screens/Polling_people.dart';
+import 'package:oli_training_field/old_possible_pages/Polling_people.dart';
 
 
 class AddPannelpollingPeople extends StatefulWidget {

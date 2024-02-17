@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oli_training_field/introduction_screens/onboarding_screens.dart';
+import 'package:oli_training_field/main_logic/onboarding_screens.dart';
 
 void main() {
   runApp(const MyApp());

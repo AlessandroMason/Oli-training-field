@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:oli_training_field/introduction_screens/AddPannelPolling.dart';
-import 'package:oli_training_field/introduction_screens/intro_page1.dart';
+import 'package:oli_training_field/old_possible_pages/AddPannelPolling.dart';
+import 'package:oli_training_field/old_possible_pages/intro_page1.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
