@@ -17,7 +17,7 @@ class IntroPage1 extends StatelessWidget {
             Hero(
               tag: 'iconlogo',
               child: Image.asset(
-                'images/IRYS_ICON.png',
+                'assets/IRYS_ICON.png',
                 height: 250,
               ),
             ),
