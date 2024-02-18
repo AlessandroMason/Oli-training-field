@@ -18,50 +18,6 @@ class MyJournalApp extends StatelessWidget {
   }
 }
 
-class BottomNavigationBarWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56.0, // Adjust the height as needed
-      color: Color(0xFFE8FFFD),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () {
-              Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.add_box),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddJournalEntryPage(),
-                ),
-              );
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.add_circle),
-            onPressed: () {
-              // Action for search button
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.pie_chart),
-            onPressed: () {
-              // Action for settings button
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class JournalHomePage extends StatefulWidget {
   @override
   _JournalHomePageState createState() => _JournalHomePageState();
@@ -75,7 +31,6 @@ class _JournalHomePageState extends State<JournalHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Journal Entries'),
-        backgroundColor: Color(0xFFE8FFFD), // Set app bar color
       ),
       backgroundColor: Color(0xFFE8FFFD),
       body: ListView.builder(
@@ -95,7 +50,44 @@ class _JournalHomePageState extends State<JournalHomePage> {
           );
         },
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(),
+      bottomNavigationBar: Container(
+        height: 56.0, // Adjust the height as needed
+        color: Color(0xFFE8FFFD),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {
+                // Action for home button
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.add_box),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddSchedulePage(),
+                  ),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.add_circle),
+              onPressed: () {
+                // Action for search button
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.pie_chart),
+              onPressed: () {
+                // Action for settings button
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -130,8 +122,6 @@ class _AddJournalEntryPageState extends State<AddJournalEntryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Journal Entry'),
-        backgroundColor: Color(0xFFE8FFFD), // Set app bar color
-        automaticallyImplyLeading: false, // Remove back arrow button
       ),
       backgroundColor: Color(0xFFE8FFFD),
       body: Padding(
@@ -174,10 +164,46 @@ class _AddJournalEntryPageState extends State<AddJournalEntryPage> {
               },
               child: Text('Save'),
             ),
+            SizedBox(height: 16.0),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context); // Navigate back to the first page
+                        },
+                        child: Text('Back to First Page'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Action for the second button
+                        },
+                        child: Text('Button 2'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Action for the third button
+                        },
+                        child: Text('Button 3'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Action for the fourth button
+                        },
+                        child: Text('Button 4'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 
@@ -229,8 +255,6 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Schedule'),
-        backgroundColor: Color(0xFFE8FFFD), // Set app bar color
-        automaticallyImplyLeading: false, // Remove back arrow button
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -314,43 +338,45 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
               ),
             ),
             SizedBox(height: 16.0),
-            Container(
-              height: 56.0, // Set a fixed height for the button row
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  IconButton(
-                    icon: Icon(Icons.home),
-                    onPressed: () {
-                      Navigator.pop(context); // Navigate back to the first page
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.add_box),
-                    onPressed: () {
-                      // Action for the second button
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.add_circle),
-                    onPressed: () {
-                      // Action for the third button
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.pie_chart),
-                    onPressed: () {
-                      // Action for the fourth button
-                    },
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.home),
+                        onPressed: () {
+                          Navigator.pop(context); // Navigate back to the first page
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.add_box),
+                        onPressed: () {
+                          // Action for the second button
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.add_circle),
+                        onPressed: () {
+                          // Action for the third button
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.pie_chart),
+                        onPressed: () {
+                          // Action for the fourth button
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20), // Adding padding below the button row
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 
@@ -396,9 +422,8 @@ class JournalEntryDetailPage extends StatelessWidget {
             },
           ),
         ],
-        backgroundColor: Color(0xFFE8FFFD), // Set app bar color
       ),
-      backgroundColor: Color(0xFFE8FFFD),
+      backgroundColor: Color(0xFD1A9F7A),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -429,7 +454,6 @@ class JournalEntryDetailPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 }
@@ -461,8 +485,6 @@ class _EditJournalEntryPageState extends State<EditJournalEntryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Journal Entry'),
-        backgroundColor: Color(0xFFE8FFFD), // Set app bar color
-        automaticallyImplyLeading: false, // Remove back arrow button
       ),
       backgroundColor: Color(0xFFE8FFFD),
       body: Padding(
@@ -508,7 +530,6 @@ class _EditJournalEntryPageState extends State<EditJournalEntryPage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 
